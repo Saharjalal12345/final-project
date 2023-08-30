@@ -9,13 +9,16 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import Stack from '@mui/material/Stack';
-import logo from '../../Utillis/images/logo.png'
+import logo from '../../Utillis/images/logo.png';
+import AdbIcon from '@mui/icons-material/Adb';
+
+import { Link } from 'react-router-dom';
+
 
 const pages = ['Homes', 'About Us'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -42,7 +45,7 @@ function NavBar() {
         <img
             src={logo}
             alt=""
-            style={{ width: '116px', height: '89px', marginRight: '490px' }}
+            style={{ width: '109px', height: '84px', marginRight: '490px' }}
           />
          
           <Typography
@@ -92,11 +95,11 @@ function NavBar() {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -120,7 +123,15 @@ function NavBar() {
             
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
+
+            <Button><Link to='/' style={{textDecoration:'none',color:'white'}} >Home</Link></Button>
+
+            <Button><Link to='/about' style={{textDecoration:'none',color:'white'}} >About</Link></Button>
+
+
+
+
+            {/* {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -128,7 +139,7 @@ function NavBar() {
               >
                 {page}
               </Button>
-            ))}
+            ))} */}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -153,18 +164,22 @@ function NavBar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {/* {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
             </Menu>
           </Box>
           <Box>    
             <Stack spacing={2} direction="row">
-           <Button variant="" sx={{  color: '#ffffff' }}>Log in</Button>
-           <Button variant="contained" sx={{ backgroundColor: '#FF5500', color: '#ffffff' }}>Sign up</Button>
-    </Stack></Box>
+           <Button variant="" sx={{  color: '#ffffff' }}>
+           <Link to='/siginIn' style={{textDecoration:'none',color:'white'}} >SignIn</Link></Button>
+
+
+
+           <Button variant="" sx={{ backgroundColor: '#FF5500', color: '#ffffff' }}> <Link to='/siginUp' style={{textDecoration:'none',color:'white'}}>SignUp</Link></Button>
+            </Stack></Box>
         </Toolbar>
 
         
